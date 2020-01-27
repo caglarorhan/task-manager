@@ -6,14 +6,14 @@ const email = async (target,subject,body)=>{
         port: 465,
         secure: true, // true for 465, false for other ports
         auth: {
-            user: 'caglaror@yandex.com', // generated ethereal user
-            pass: '95819581' // generated ethereal password
+            user: process.env.YANDEX_EMAIL, // generated ethereal user
+            pass: process.env.YANDEX_PASSWORD // generated ethereal password
         }
     });
 
     // send mail with defined transport object
     let info = await transporter.sendMail({
-        from: '"Too Doo 👻" <caglaror@yandex.com>', // sender address
+        from: `"Too Doo 👻" <${process.env.YANDEX_EMAIL}>`, // sender address
         to: target, // list of receivers
         subject: subject, // Subject line
         text: '', // plain text body
