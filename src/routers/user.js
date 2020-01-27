@@ -15,7 +15,8 @@ router.post('/users', async (req,res)=>{
         //const token = await user.generateAuthToken();
         //email(user.email, 'Test',`<b>${user.name}</b> merhaba, uyeliginizi aktive etmek icin lutfen <a href="test.html">bu linke tiklayiniz</a>.`).catch(console.error);
 
-        res.status(201).send({user, token})
+        //res.status(201).send({user, token})
+        res.status(201).send({user})
     }catch(e){
         res.status(400).send(e.message)
     }
