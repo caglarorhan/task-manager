@@ -12,11 +12,12 @@ router.post('/users', async (req,res)=>{
 //res.send(req.body);
     try{
         await user.save();
-        //const token = await user.generateAuthToken();
-        //email(user.email, 'Test',`<b>${user.name}</b> merhaba, uyeliginizi aktive etmek icin lutfen <a href="test.html">bu linke tiklayiniz</a>.`).catch(console.error);
-
-        //res.status(201).send({user, token})
-        res.status(201).send({user})
+        console.log("Kullanici save edildi");
+        const token = await user.generateAuthToken();
+        console.log(`Token olusturuldu: ${token}`);
+        email(user.email, 'Test',`<b>${user.name}</b> merhaba, uyeliginizi aktive etmek icin lutfen <a href="test.html">bu linke tiklayiniz</a>.`).catch(console.error);
+        console.log('Email kullaniciya gonderildi');
+        res.status(201).send({user, token})
     }catch(e){
         res.status(400).send(e.message)
     }
