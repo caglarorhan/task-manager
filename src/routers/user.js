@@ -9,10 +9,10 @@ const email = require('../email/email')
 
 router.post('/users', async (req,res)=>{
     const user = new User(req.body);
-res.send(req.body);
+//res.send(req.body);
     try{
         await user.save();
-        const token = await user.generateAuthToken();
+        //const token = await user.generateAuthToken();
         //email(user.email, 'Test',`<b>${user.name}</b> merhaba, uyeliginizi aktive etmek icin lutfen <a href="test.html">bu linke tiklayiniz</a>.`).catch(console.error);
 
         res.status(201).send({user, token})
