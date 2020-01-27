@@ -13,7 +13,7 @@ router.post('/users', async (req,res)=>{
     try{
         await user.save();
         const token = await user.generateAuthToken();
-        email(user.email, 'Test',`<b>${user.name}</b> merhaba, uyeliginizi aktive etmek icin lutfen <a href="test.html">bu linke tiklayiniz</a>.`).catch(console.error);
+        //email(user.email, 'Test',`<b>${user.name}</b> merhaba, uyeliginizi aktive etmek icin lutfen <a href="test.html">bu linke tiklayiniz</a>.`).catch(console.error);
 
         res.status(201).send({user, token})
     }catch(e){
